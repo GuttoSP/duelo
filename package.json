@@ -5,12 +5,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GuttoSP/duelu.git"
+    "url": "git+https://github.com/GuttoSP/duelo.git"
   },
   "bugs": {
-    "url": "https://github.com/GuttoSP/duelu/issues"
+    "url": "https://github.com/GuttoSP/duelo/issues"
   },
-  "homepage": "https://github.com/GuttoSP/duelu#readme",
+  "homepage": "https://github.com/GuttoSP/duelo#readme",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

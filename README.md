@@ -6,7 +6,7 @@ Duelo is a visual voting app: two images appear, the user clicks the preferred o
 
 The project started from a simple interaction idea: make preference voting fast enough to feel like a game, while keeping a real ranking model behind it.
 
-[Repository](https://github.com/GuttoSP/duelu)
+[Repository](https://github.com/GuttoSP/duelo)
 
 ## What It Does
 
