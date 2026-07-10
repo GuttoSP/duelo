@@ -1,0 +1,144 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum ImageStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum Orientation {
+  PORTRAIT
+  LANDSCAPE
+  SQUARE
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  passwordHash  String?
+  role          Role      @default(USER)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts Account[]
+  sessions Session[]
+  uploads  DuelImage[]
+  votes    Vote[]
+  rooms    DuelRoom[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Category {
+  id          String      @id @default(cuid())
+  slug        String      @unique
+  name        String
+  groupName   String?
+  description String
+  icon        String
+  createdAt   DateTime    @default(now())
+  images      DuelImage[]
+  rooms       DuelRoom[]
+}
+
+model DuelImage {
+  id          String      @id @default(cuid())
+  title       String
+  imageUrl    String
+  sourceUrl   String?
+  status      ImageStatus @default(APPROVED)
+  orientation Orientation
+  rating      Float       @default(1200)
+  uncertainty Float       @default(350)
+  wins        Int         @default(0)
+  losses      Int         @default(0)
+  appearances Int         @default(0)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  categoryId String
+  uploaderId String?
+
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  uploader User?    @relation(fields: [uploaderId], references: [id], onDelete: SetNull)
+  winsAsChoice Vote[] @relation("Winner")
+  lossesAsChoice Vote[] @relation("Loser")
+}
+
+model Vote {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  mode      String   @default("category")
+  delta     Float
+
+  winnerId String
+  loserId  String
+  userId   String?
+
+  winner DuelImage @relation("Winner", fields: [winnerId], references: [id], onDelete: Cascade)
+  loser  DuelImage @relation("Loser", fields: [loserId], references: [id], onDelete: Cascade)
+  user   User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+}
+
+model DuelRoom {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  isChaos     Boolean  @default(false)
+  isPublic    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  categoryId String?
+  ownerId    String?
+
+  category Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  owner    User?     @relation(fields: [ownerId], references: [id], onDelete: SetNull)
+}
