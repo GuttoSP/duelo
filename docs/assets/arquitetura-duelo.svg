@@ -1,0 +1,49 @@
+<svg width="1200" height="560" viewBox="0 0 1200 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="560" rx="24" fill="#071018"/>
+  <text x="70" y="82" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="900">Arquitetura atual</text>
+  <text x="72" y="118" fill="#A8B3C7" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Interface rápida, APIs pequenas e persistência opcional via PostgreSQL.</text>
+
+  <rect x="72" y="184" width="180" height="96" rx="14" fill="#0F172A" stroke="#38BDF8"/>
+  <text x="106" y="226" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="900">Usuario</text>
+  <text x="104" y="254" fill="#A8B3C7" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">Clique ou toque</text>
+
+  <path d="M274 232H354" stroke="#38BDF8" stroke-width="7" stroke-linecap="round"/>
+  <path d="M340 211L361 232L340 253" stroke="#38BDF8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="384" y="168" width="230" height="128" rx="14" fill="#0F172A" stroke="#FBBF24"/>
+  <text x="424" y="214" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="900">Next.js + React</text>
+  <text x="424" y="246" fill="#A8B3C7" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">Arena, filtros e PWA</text>
+  <text x="424" y="270" fill="#A8B3C7" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">Preload em background</text>
+
+  <path d="M636 232H716" stroke="#FBBF24" stroke-width="7" stroke-linecap="round"/>
+  <path d="M702 211L723 232L702 253" stroke="#FBBF24" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="746" y="168" width="190" height="128" rx="14" fill="#0F172A" stroke="#22D3EE"/>
+  <text x="790" y="214" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="900">APIs</text>
+  <text x="784" y="246" fill="#A8B3C7" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">/api/duel</text>
+  <text x="784" y="270" fill="#A8B3C7" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">/api/upload</text>
+
+  <path d="M958 232H1038" stroke="#22D3EE" stroke-width="7" stroke-linecap="round"/>
+  <path d="M1024 211L1045 232L1024 253" stroke="#22D3EE" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="72" y="374" width="260" height="96" rx="14" fill="#111827" stroke="#475569"/>
+  <text x="108" y="416" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="900">Auth.js</text>
+  <text x="108" y="446" fill="#A8B3C7" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">Sessão e usuários</text>
+
+  <rect x="378" y="374" width="260" height="96" rx="14" fill="#111827" stroke="#475569"/>
+  <text x="414" y="416" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="900">Ranking Elo</text>
+  <text x="414" y="446" fill="#A8B3C7" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">Vitórias, derrotas e delta</text>
+
+  <rect x="684" y="374" width="260" height="96" rx="14" fill="#111827" stroke="#475569"/>
+  <text x="720" y="416" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="900">Prisma</text>
+  <text x="720" y="446" fill="#A8B3C7" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">PostgreSQL ou demo em memória</text>
+
+  <rect x="984" y="184" width="144" height="96" rx="14" fill="#0F172A" stroke="#22C55E"/>
+  <text x="1022" y="226" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="900">Dados</text>
+  <text x="1010" y="254" fill="#A8B3C7" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">Imagens e votos</text>
+
+  <path d="M841 314V352" stroke="#64748B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M841 352H814" stroke="#64748B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M499 314V352" stroke="#64748B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M499 352H508" stroke="#64748B" stroke-width="6" stroke-linecap="round"/>
+</svg>

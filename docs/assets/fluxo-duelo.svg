@@ -1,0 +1,32 @@
+<svg width="1200" height="520" viewBox="0 0 1200 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="520" rx="24" fill="#071018"/>
+  <rect x="56" y="56" width="1088" height="408" rx="20" fill="#0F172A" stroke="#263244"/>
+  <text x="92" y="118" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="900">Fluxo principal do Duelo</text>
+  <text x="94" y="154" fill="#A8B3C7" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">A escolha do usuário move o ranking e mantém a vencedora em jogo.</text>
+
+  <rect x="96" y="214" width="220" height="150" rx="16" fill="#111827" stroke="#38BDF8"/>
+  <text x="128" y="258" fill="#67E8F9" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="900">1. Dois cards</text>
+  <text x="128" y="292" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="900">Imagem A</text>
+  <text x="128" y="330" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="900">Imagem B</text>
+
+  <path d="M348 289H440" stroke="#FBBF24" stroke-width="8" stroke-linecap="round"/>
+  <path d="M425 265L449 289L425 313" stroke="#FBBF24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="472" y="214" width="220" height="150" rx="16" fill="#111827" stroke="#FBBF24"/>
+  <text x="504" y="258" fill="#FDE68A" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="900">2. Usuário vota</text>
+  <text x="504" y="302" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900">Clique</text>
+  <text x="504" y="334" fill="#A8B3C7" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">A vencedora fica.</text>
+
+  <path d="M724 289H816" stroke="#22D3EE" stroke-width="8" stroke-linecap="round"/>
+  <path d="M801 265L825 289L801 313" stroke="#22D3EE" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="848" y="214" width="256" height="150" rx="16" fill="#111827" stroke="#22D3EE"/>
+  <text x="880" y="258" fill="#67E8F9" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="900">3. Troca e ranking</text>
+  <text x="880" y="302" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900">Perdedora sai</text>
+  <text x="880" y="334" fill="#A8B3C7" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">Nova imagem entra.</text>
+
+  <rect x="96" y="398" width="1008" height="34" rx="17" fill="#182536"/>
+  <rect x="118" y="409" width="270" height="12" rx="6" fill="#38BDF8"/>
+  <rect x="420" y="409" width="210" height="12" rx="6" fill="#FBBF24"/>
+  <rect x="662" y="409" width="420" height="12" rx="6" fill="#22C55E"/>
+</svg>

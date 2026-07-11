@@ -2,11 +2,27 @@
 
 ![Duelo preview](public/duelo-preview.svg)
 
+**Duelo** é um app de votação visual: duas imagens aparecem, a pessoa clica na preferida, a vencedora continua na tela e a outra é substituída. A ideia é transformar escolha por preferência em uma experiência rápida, quase de jogo, mas com ranking real por categoria, nicho, mix personalizado ou modo totalmente aleatório.
+
+**Documentação em português:** [docs/pt-BR.md](docs/pt-BR.md)
+
+[Repository](https://github.com/GuttoSP/duelo)
+
+## Prints
+
+![Duelo desktop](docs/screenshots/duelo-desktop.png)
+
+![Duelo mobile](docs/screenshots/duelo-mobile.png)
+
+## Explicação Rápida
+
+![Fluxo do Duelo](docs/assets/fluxo-duelo.svg)
+
+![Modos de jogo](docs/assets/modos-duelo.svg)
+
 Duelo is a visual voting app: two images appear, the user clicks the preferred one, the winner stays, and the loser is replaced. Over time, the app builds rankings by category, niche, mixed playlists, or a full random mode.
 
 The project started from a simple interaction idea: make preference voting fast enough to feel like a game, while keeping a real ranking model behind it.
-
-[Repository](https://github.com/GuttoSP/duelo)
 
 ## What It Does
 
