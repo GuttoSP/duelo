@@ -19,6 +19,15 @@ type VoteOptions = {
 };
 
 const memoryImages = demoImages.map((image) => ({ ...image }));
+const memoryUploads: Array<
+  DuelImageView & {
+    status: "PENDING";
+    createdAt: Date;
+    updatedAt: Date;
+    sourceUrl: string | null;
+    uploaderId?: string;
+  }
+> = [];
 
 export async function getDashboard() {
   try {
@@ -185,16 +194,48 @@ export async function createUpload(input: {
 }) {
   const orientation = normalizeOrientation(input.orientation) ?? "PORTRAIT";
 
-  return prisma.duelImage.create({
-    data: {
+  try {
+    return await prisma.duelImage.create({
+      data: {
+        title: input.title,
+        imageUrl: input.imageUrl,
+        categoryId: input.categoryId,
+        orientation,
+        uploaderId: input.uploaderId,
+        status: "PENDING",
+      },
+    });
+  } catch {
+    const category = demoCategories.find((item) => item.id === input.categoryId);
+
+    if (!category) {
+      throw new Error("Category not found");
+    }
+
+    const now = new Date();
+    const upload = {
+      id: `upload-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
       title: input.title,
       imageUrl: input.imageUrl,
       categoryId: input.categoryId,
+      categorySlug: category.slug,
+      categoryName: category.name,
       orientation,
+      rating: 1200,
+      wins: 0,
+      losses: 0,
+      appearances: 0,
+      status: "PENDING" as const,
+      createdAt: now,
+      updatedAt: now,
+      sourceUrl: null,
       uploaderId: input.uploaderId,
-      status: "PENDING",
-    },
-  });
+    };
+
+    memoryUploads.push(upload);
+
+    return upload;
+  }
 }
 
 function getMemoryDuel(options: DuelOptions) {

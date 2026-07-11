@@ -6,6 +6,8 @@
 
 **Documentação em português:** [docs/pt-BR.md](docs/pt-BR.md)
 
+**Guia de uso:** [docs/USO.md](docs/USO.md)
+
 [Repository](https://github.com/GuttoSP/duelo)
 
 ## Prints
@@ -13,6 +15,8 @@
 ![Duelo desktop](docs/screenshots/duelo-desktop.png)
 
 ![Duelo mobile](docs/screenshots/duelo-mobile.png)
+
+![Envio de imagem](docs/screenshots/duelo-upload.png)
 
 ## Explicação Rápida
 

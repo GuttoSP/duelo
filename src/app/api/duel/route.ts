@@ -7,7 +7,7 @@ const voteSchema = z.object({
   winnerId: z.string(),
   loserId: z.string(),
   mode: z.string().optional(),
-});
+}).refine((vote) => vote.winnerId !== vote.loserId);
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -24,13 +24,28 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
-  const parsed = voteSchema.safeParse(await request.json());
+  const parsed = voteSchema.safeParse(await readJson(request));
 
   if (!parsed.success) {
-    return NextResponse.json({ error: "Voto invalido" }, { status: 400 });
+    return NextResponse.json({ error: "Voto inválido" }, { status: 400 });
   }
 
-  const result = await recordVote(parsed.data);
+  try {
+    const result = await recordVote(parsed.data);
 
-  return NextResponse.json(result);
+    return NextResponse.json(result);
+  } catch {
+    return NextResponse.json(
+      { error: "Imagens não encontradas" },
+      { status: 404 },
+    );
+  }
+}
+
+async function readJson(request: Request) {
+  try {
+    return await request.json();
+  } catch {
+    return undefined;
+  }
 }

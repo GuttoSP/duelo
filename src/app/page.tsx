@@ -26,15 +26,16 @@ import {
   Shuffle,
   Sun,
   TreePine,
-  Upload,
   Utensils,
   Users,
   Watch,
   Waves,
+  Fish,
   type LucideIcon,
 } from "lucide-react";
 
 import { DuelArena } from "@/components/duel-arena";
+import { UploadForm } from "@/components/upload-form";
 import { getDashboard, getDuel } from "@/lib/data";
 
 const iconMap = {
@@ -50,6 +51,7 @@ const iconMap = {
   Dog,
   Flower2,
   Footprints,
+  Fish,
   Gauge,
   Gem,
   Home: HomeIcon,
@@ -200,23 +202,7 @@ export default async function Home() {
               automaticos por orientacao.
             </p>
           </div>
-          <form className="rounded-lg border border-white/10 bg-white/[0.07] p-4 backdrop-blur">
-            <Upload className="mb-3 h-6 w-6 text-cyan-300" />
-            <input
-              className="mb-2 w-full rounded-md border border-white/10 bg-slate-950 px-3 py-3 text-sm outline-none"
-              placeholder="Titulo da imagem"
-            />
-            <input
-              className="mb-2 w-full rounded-md border border-white/10 bg-slate-950 px-3 py-3 text-sm outline-none"
-              placeholder="https://..."
-            />
-            <button
-              className="mt-2 w-full rounded-md bg-amber-300 px-4 py-3 text-sm font-black text-slate-950"
-              type="button"
-            >
-              Enviar para moderacao
-            </button>
-          </form>
+          <UploadForm categories={dashboard.categories} />
         </section>
 
         <section

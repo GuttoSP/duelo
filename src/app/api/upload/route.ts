@@ -1,25 +1,18 @@
 import { NextResponse } from "next/server";
-import { z } from "zod";
 
 import { auth } from "@/auth";
 import { createUpload } from "@/lib/data";
-
-const uploadSchema = z.object({
-  title: z.string().min(2).max(80),
-  imageUrl: z.string().url(),
-  categoryId: z.string().min(1),
-  orientation: z.enum(["PORTRAIT", "LANDSCAPE", "SQUARE"]),
-});
+import { uploadSchema } from "@/lib/upload-validation";
 
 export async function POST(request: Request) {
-  const session = await auth();
-  const parsed = uploadSchema.safeParse(await request.json());
+  const parsed = uploadSchema.safeParse(await readJson(request));
 
   if (!parsed.success) {
-    return NextResponse.json({ error: "Envio invalido" }, { status: 400 });
+    return NextResponse.json({ error: "Envio inválido" }, { status: 400 });
   }
 
   try {
+    const session = await getOptionalSession();
     const upload = await createUpload({
       ...parsed.data,
       uploaderId: session?.user?.id,
@@ -31,5 +24,21 @@ export async function POST(request: Request) {
       { error: "Configure o PostgreSQL para salvar uploads." },
       { status: 503 },
     );
+  }
+}
+
+async function readJson(request: Request) {
+  try {
+    return await request.json();
+  } catch {
+    return undefined;
+  }
+}
+
+async function getOptionalSession() {
+  try {
+    return await auth();
+  } catch {
+    return null;
   }
 }

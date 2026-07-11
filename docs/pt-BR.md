@@ -14,6 +14,14 @@ A proposta é simples na interface, mas não é apenas colocar duas fotos lado a
 
 ![Duelo no celular](screenshots/duelo-mobile.png)
 
+### Envio de imagem
+
+![Envio de imagem no Duelo](screenshots/duelo-upload.png)
+
+## Guia de uso
+
+O passo a passo completo fica em [USO.md](USO.md).
+
 ## Como funciona
 
 ![Fluxo do Duelo](assets/fluxo-duelo.svg)
@@ -131,7 +139,8 @@ npm run prisma:seed
 - Ranking com atualização estilo Elo.
 - Pré-carregamento contínuo de imagens.
 - Fallback demo sem banco.
-- Upload por URL com imagem pendente.
+- PWA com manifest, ícones maskable, service worker e tela offline.
+- Upload por URL com imagem pendente; sem PostgreSQL, o envio fica em memória até reiniciar o servidor.
 - Base para autenticação com Auth.js.
 
 ## Próximos Passos Naturais

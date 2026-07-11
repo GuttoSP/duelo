@@ -64,10 +64,10 @@ export function DuelArena({ initialDuel, categories }: Props) {
   const aspectClass = useMemo(
     () =>
       orientation === "LANDSCAPE"
-        ? "aspect-[16/10]"
+        ? "h-[180px] sm:h-auto sm:aspect-[16/10]"
         : orientation === "SQUARE"
-          ? "aspect-square"
-          : "aspect-[9/13]",
+          ? "h-[220px] sm:h-auto sm:aspect-square"
+          : "h-[330px] sm:h-auto sm:aspect-[9/13]",
     [orientation],
   );
 
@@ -314,7 +314,7 @@ export function DuelArena({ initialDuel, categories }: Props) {
           </div>
         </div>
 
-        <div className="grid gap-3 md:grid-cols-2">
+        <div className="grid grid-cols-2 gap-2 sm:gap-3">
           <DuelCard
             image={duel.left}
             aspectClass={aspectClass}
@@ -334,13 +334,13 @@ export function DuelArena({ initialDuel, categories }: Props) {
         </div>
       </div>
 
-      <aside className="grid content-start gap-4">
-        <div className="rounded-lg border border-white/15 bg-slate-950/70 p-4 text-white shadow-2xl shadow-black/20 backdrop-blur">
+      <aside className="grid min-w-0 content-start gap-4">
+        <div className="min-w-0 rounded-lg border border-white/15 bg-slate-950/70 p-4 text-white shadow-2xl shadow-black/20 backdrop-blur">
           <div className="mb-3 flex items-center gap-2">
             <Gamepad2 className="h-5 w-5 text-cyan-300" />
             <h2 className="text-base font-black">Controles</h2>
           </div>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid min-w-0 grid-cols-3 gap-2">
             <button
               className={controlClass(mode === "category")}
               onClick={() => reload("category")}
@@ -366,7 +366,7 @@ export function DuelArena({ initialDuel, categories }: Props) {
             Categoria
           </label>
           <select
-            className="mt-2 w-full rounded-md border border-white/10 bg-slate-900 px-3 py-3 text-sm font-bold text-white outline-none focus:border-cyan-300"
+            className="mt-2 w-full min-w-0 rounded-md border border-white/10 bg-slate-900 px-3 py-3 text-sm font-bold text-white outline-none focus:border-cyan-300"
             value={category}
             onChange={(event) =>
               reload("category", event.target.value, orientation, [event.target.value])
@@ -404,7 +404,7 @@ export function DuelArena({ initialDuel, categories }: Props) {
           <label className="mt-4 block text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
             Formato
           </label>
-          <div className="mt-2 grid grid-cols-3 gap-2">
+          <div className="mt-2 grid min-w-0 grid-cols-3 gap-2">
             {(["PORTRAIT", "LANDSCAPE", "SQUARE"] as const).map((item) => (
               <button
                 key={item}
@@ -427,7 +427,7 @@ export function DuelArena({ initialDuel, categories }: Props) {
           </label>
         </div>
 
-        <div className="rounded-lg border border-white/15 bg-white p-4 text-slate-950 shadow-xl">
+        <div className="min-w-0 rounded-lg border border-white/15 bg-white p-4 text-slate-950 shadow-xl">
           <div className="flex items-center gap-2">
             <Trophy className="h-5 w-5 text-amber-500" />
             <h2 className="font-black">Pontuacao</h2>
@@ -462,7 +462,7 @@ function DuelCard({
   return (
     <button
       className={clsx(
-        "group relative min-h-[360px] overflow-hidden rounded-lg border border-white/15 bg-slate-900 text-left shadow-2xl shadow-black/30 outline-none transition duration-200 focus-visible:ring-4 focus-visible:ring-cyan-300/70 active:scale-[0.99]",
+        "group relative min-w-0 overflow-hidden rounded-lg border border-white/15 bg-slate-900 text-left shadow-2xl shadow-black/30 outline-none transition duration-200 focus-visible:ring-4 focus-visible:ring-cyan-300/70 active:scale-[0.99]",
         aspectClass,
         disabled ? "cursor-wait opacity-80" : "hover:-translate-y-1",
       )}
@@ -486,17 +486,19 @@ function DuelCard({
           </div>
         </div>
       ) : null}
-      <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-black/50 px-3 py-2 text-xs font-black uppercase tracking-[0.18em] text-white backdrop-blur">
+      <div className="absolute left-2 top-2 flex items-center gap-1 rounded-full bg-black/50 px-2 py-1 text-xs font-black uppercase tracking-[0.12em] text-white backdrop-blur sm:left-4 sm:top-4 sm:gap-2 sm:px-3 sm:py-2 sm:tracking-[0.18em]">
         <Zap className="h-4 w-4 text-yellow-300" />
         {side === "left" ? "A" : "B"}
       </div>
-      <div className="absolute inset-x-0 bottom-0 p-4 text-white">
-        <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-bold backdrop-blur">
+      <div className="absolute inset-x-0 bottom-0 p-2 text-white sm:p-4">
+        <div className="mb-2 inline-flex max-w-full items-center gap-1 rounded-full bg-white/15 px-2 py-1 text-[11px] font-bold backdrop-blur sm:gap-2 sm:px-3 sm:text-xs">
           <BadgeCheck className="h-4 w-4 text-cyan-200" />
-          {image.categoryName}
+          <span className="truncate">{image.categoryName}</span>
         </div>
-        <h3 className="text-2xl font-black leading-tight">{image.title}</h3>
-        <p className="mt-1 text-sm font-semibold text-white/80">
+        <h3 className="text-base font-black leading-tight sm:text-2xl">
+          {image.title}
+        </h3>
+        <p className="mt-1 text-xs font-semibold text-white/80 sm:text-sm">
           Elo {Math.round(image.rating)} - {image.wins}V / {image.losses}D
         </p>
       </div>
@@ -634,7 +636,7 @@ function Metric({ label, value }: { label: string; value: string | number }) {
 
 function controlClass(active: boolean) {
   return clsx(
-    "flex min-h-11 items-center justify-center gap-2 rounded-md px-3 text-sm font-black transition",
+    "flex min-h-11 min-w-0 items-center justify-center gap-1 overflow-hidden rounded-md px-2 text-xs font-black transition sm:gap-2 sm:px-3 sm:text-sm",
     active
       ? "bg-cyan-300 text-slate-950"
       : "border border-white/10 bg-white/5 text-white hover:bg-white/10",
